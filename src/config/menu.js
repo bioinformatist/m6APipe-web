@@ -21,35 +21,28 @@ const headerMenuConfig = [
 
 const asideMenuConfig = [
   {
-    name: 'Dashboard',
+    name: 'Run m6APipe',
     path: '/dashboard',
-    icon: 'atm',
+    icon: 'loading',
     children: [
       {
-        name: '监控页',
+        name: 'Setting Parameter',
         path: '/dashboard/monitor',
       },
+      {
+        name: 'Workflow Log',
+      },
     ],
   },
   {
-    name: '图表页',
+    name: 'Help',
     path: '/chart',
-    icon: 'picture',
-    children: [
-      {
-        name: '基础图表',
-        path: '/chart/basic',
-      },
-      {
-        name: '通用图表',
-        path: '/chart/general',
-      },
-    ],
+    icon: 'help',
   },
   {
-    name: '表格页',
+    name: 'Contact',
     path: '/table',
-    icon: 'calendar',
+    icon: 'email',
     children: [
       {
         name: '基础表格',

@@ -6,7 +6,7 @@ export default function Logo() {
   return (
     <div className="logo">
       <Link to="/" className={styles.logo}>
-        LOGO
+        m6APipe Web
       </Link>
     </div>
   );
