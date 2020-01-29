@@ -33,7 +33,7 @@ function getSubMenuOrItem(item, index) {
     return null;
   }
   return (
-    <NavItem key={item.path}>
+    <NavItem key={item.path} icon={item.icon}>
       <Link to={item.path}>
         {item.name}
       </Link>

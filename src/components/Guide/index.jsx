@@ -1,52 +1,102 @@
 import React from 'react';
 import IceContainer from '@icedesign/container';
+import { Grid , MenuButton , Button, Radio, Balloon, Icon} from '@alifd/next';
+import IceTitle from '@icedesign/title';
+
 import styles from './index.module.scss';
+
+
+const { Row, Col } = Grid;
+
+const { Item } = MenuButton;
+const aligners = ['star', 'fuck'].map(item => <Item key={item}>{item}</Item>);
+const strand = ['U', 'fuck'].map(item => <Item key={item}>{item}</Item>);
+
+const RadioGroup = Radio.Group;
+class NestApp extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value: 'unzipped',
+        };
+
+        this.onChange = this.onChange.bind(this);
+    }
+
+    onChange(value) {
+        this.setState({
+            value,
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <RadioGroup value={this.state.value} onChange={this.onChange} aria-labelledby="groupId">
+                    <Radio id="Yes" value="gzipped">Yes</Radio>
+                    <Radio id="No" value="unzipped">No</Radio>
+                </RadioGroup>
+            </div>
+        );
+    }
+}
+
+class TitleApp extends React.Component {
+
+  state = {
+
+  }
+
+  render() {
+    return (
+      <div>
+        <IceTitle>
+          Main parameters &nbsp;
+          <Balloon trigger={<Icon type="help" style={{position: 'relative', color:'#666666'}} />} align="r" triggerType="hover">
+            Main parameters of m6APipe.
+          </Balloon>
+        </IceTitle>
+      </div>
+    );
+  }
+}
 
 function Guide() {
   return (
     <IceContainer className={styles.icebox}>
-      <h2>使用指南</h2>
-      <ul>
-        <li className={styles.item}>
-          1. 该模板适用于从 0 到 1
-          开始搭建项目，内置基础的页面，路由和菜单展示。
-        </li>
-        <li className={styles.item}>2. 菜单配置: menuConfig.js</li>
-        <li className={styles.item}>3. 路由配置: routerConfig.js</li>
-        <li className={styles.item}>
-          4. 通过 GUI 工具{' '}
-          <a
-            href="https://alibaba.github.io/ice/iceworks"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Iceworks
-          </a>{' '}
-          创建页面，会同步的更新菜单和路由配置。
-        </li>
-        <li className={styles.item}>
-          5. 基于{' '}
-          <a
-            href="https://alibaba.github.io/ice/block"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            物料
-          </a>{' '}
-          生成的页面将会添加在 pages 目录。
-        </li>
-        <li className={styles.item}>
-          6. 让前端工程变的轻松便捷，
-          <a
-            href="https://alibaba.github.io/ice/docs/iceworks"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            快速开始
-          </a>{' '}
-          。
-        </li>
-      </ul>
+      <TitleApp />
+      <Row>
+            <Col span="8">Genome Sequence (fasta)</Col>
+            <Col span="4"><Button ghost="light">Select File</Button></Col>
+            <Col span="8">Aligners</Col>
+            <Col span="4"><MenuButton label="star" selectMode="single" onSelect={keys => console.log(keys)}>{aligners}</MenuButton></Col>
+      </Row>
+      <Row>
+            <Col span="8">Genome Annotation (gtf)</Col>
+            <Col span="4"><Button ghost="light">Select File</Button></Col>
+            <Col span="8">peakCalling_mode</Col>
+            <Col span="4"><MenuButton label="star" selectMode="single" onSelect={keys => console.log(keys)}>{aligners}</MenuButton></Col>
+      </Row>
+      <Row>
+            <Col span="8">ReadPaths</Col>
+            <Col span="4"><Button ghost="light">Select File</Button></Col>
+            <Col span="8">peakMerged_mode</Col>
+            <Col span="4"><MenuButton label="star" selectMode="single" onSelect={keys => console.log(keys)}>{aligners}</MenuButton></Col>
+      </Row>
+      <Row>
+            <Col span="8">Strand Info</Col>
+            <Col span="4"><MenuButton label="U" selectMode="single" onSelect={keys => console.log(keys)}>{strand}</MenuButton></Col>
+            <Col span="8">expression_analysis_mode</Col>
+            <Col span="4"><MenuButton label="star" selectMode="single" onSelect={keys => console.log(keys)}>{aligners}</MenuButton></Col>
+      </Row>
+      <Row>
+            <Col span="8">Gzipped</Col>
+            <Col span="4"><NestApp /></Col>
+            <Col span="8">methylation_analysis_mode</Col>
+            <Col span="4"><MenuButton label="star" selectMode="single" onSelect={keys => console.log(keys)}>{aligners}</MenuButton></Col>
+      </Row>
     </IceContainer>
   );
 }
