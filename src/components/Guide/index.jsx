@@ -13,7 +13,7 @@ const aligners = ['star', 'fuck'].map(item => <Item key={item}>{item}</Item>);
 const strand = ['U', 'fuck'].map(item => <Item key={item}>{item}</Item>);
 
 const RadioGroup = Radio.Group;
-class NestApp extends React.Component {
+class GzipRadioGroup extends React.Component {
 
     constructor(props) {
         super(props);
@@ -93,7 +93,7 @@ function Guide() {
       </Row>
       <Row>
             <Col span="8">Gzipped</Col>
-            <Col span="4"><NestApp /></Col>
+            <Col span="4"><GzipRadioGroup /></Col>
             <Col span="8">methylation_analysis_mode</Col>
             <Col span="4"><MenuButton label="star" selectMode="single" onSelect={keys => console.log(keys)}>{aligners}</MenuButton></Col>
       </Row>
