@@ -5,6 +5,7 @@
   "dependencies": {
     "@alifd/next": "^1.x",
     "@icedesign/container": "^1.x",
+    "@icedesign/dynamic-icon": "^0.1.8",
     "@icedesign/img": "^1.x",
     "@icedesign/layout": "^1.x",
     "@icedesign/theme": "^1.0.0",
