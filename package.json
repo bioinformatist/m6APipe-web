@@ -10,7 +10,7 @@
     "@icedesign/layout": "^1.x",
     "@icedesign/theme": "^1.0.0",
     "@icedesign/title": "^1.0.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "classnames": "^2.2.5",
     "enquire-js": "^0.1.2",
     "moment": "^2.24.0",
